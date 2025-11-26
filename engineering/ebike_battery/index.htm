@@ -1,0 +1,1004 @@
+﻿<!DOCTYPE html>
+<html><head>
+    <title>EBike Battery</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href='../../img/logo.png'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../../css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style type="text/css" media="screen">
+        /* ================== */
+/* HOUSEKEEPING */
+/* ================== */
+
+:root {
+    --sm-width: 768px;
+    --md-width: 992px;
+    --lg-width: 1200px;
+    --color-light-gray: #999;
+    --color-gray: #666;
+    --color-dark-gray: #555;
+    --color-black: #000;
+    --font-header: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 13px;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1,
+h2 {
+    font-family: var(--font-header);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-header);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    /* letter-spacing: 1px; */
+}
+
+
+p {
+    line-height: 1.75rem;
+}
+
+ul,
+ol,
+li > p {
+    margin: 0;
+}
+
+img {
+    border-radius: 25px;
+}
+
+button {
+    border: none;
+    background-color: var(--color-gray);
+    color: white;
+    padding: 15px 30px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: var(--color-dark-gray);
+}
+
+/* =================================== */
+/* EFFECTS */
+/* =================================== */
+
+.fade {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.faded-in {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/* ================== */
+/* NAV */
+/* ================== */
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+div.navholder {
+    width: 90%;
+    max-width: var(--lg-width);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+span.navlink {
+    margin: 20px;
+}
+
+span.navlink > a {
+    color: var(--color-gray);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+span.navlink > a:hover {
+    color: var(--color-light-gray);
+}
+
+div.navholder-mobile {
+    display: none;
+}
+
+span.hamburger {
+    display: none;
+    z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+    div.navholder {
+        display: none;
+    }
+
+    div.navholder-mobile {
+        display: block;
+        height: 0;
+        width: 100%;
+        position: fixed;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        /* background-color: white; */
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+
+    a.closebtn {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 40px;
+        color: var(--color-black);
+        text-decoration: none;
+    }
+
+    div.navholder-content {
+        position: relative;
+        top: 10%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    div.navholder-content > a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 24px;
+        color: var(--color-black);
+        display: block;
+        text-transform: uppercase;
+    }
+
+    span.hamburger {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 40px;
+      }
+}
+
+/* ================== */
+/* MAIN */
+/* ================== */
+
+main#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div#main {
+    width: 95%;
+    max-width: var(--lg-width);
+}
+
+div#mainSec > h1 {
+    margin: 80px 0 10px 0;
+    text-align: center;
+}
+
+div#mainSec > h5 {
+    margin: 10px 0 45px 0;
+    text-align: center;
+}
+
+div#gridSec {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+@media (max-width: 768px) {
+    div#gridSec {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    div.gridElt {
+        text-align: center;
+    }
+}
+
+div.gridElt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.gridElt > h2 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+div.gridElt > p {
+    margin-top: 0;
+    color: var(--color-dark-gray);
+    font-size: 0.75rem;
+}
+
+div.gridElt > a > img {
+    width: 300px;
+    height: 300px;
+    transition: opacity 0.2s ease-in-out, transform 0.25s ease-in-out;
+}
+
+div.gridElt > a > img:hover {
+    transform: scale(1.05);
+}
+
+/* ================== */
+/* HOME */
+/* ================== */
+
+div.landingoptions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 768px) {
+    div.landingoptions {
+        flex-direction: column;
+    }
+}
+
+div.landingoptiondiv {
+    transition: transform 0.25s;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    margin: 0 20px;
+}
+
+div.landingoptiondiv:hover {
+    transform: scale(1.05);
+}
+
+div.landingoptiondiv > h2 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+div.landingoptiondiv > p {
+    margin-top: 0;
+    color: var(--color-dark-gray);
+    font-size: 0.75rem;
+}
+
+a.landingoption {
+    width: 100%;
+    height: 300px;
+    max-height: 50vh;
+    padding: 20px;
+    border-radius: 25px;
+    background-size: cover;
+    background-position: center;
+}
+
+div.hero {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.hero > a > img.hero-img {
+    width: 150px;
+}
+
+div.hero > h1.hero-header {
+    color: var(--color-black);
+    font-weight: 600;
+}
+
+div.hero > h2.hero-subheader {
+    color: var(--color-gray);
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    div.hero > a > img.hero-img {
+        width: 100px;
+    }
+
+    div.hero > h1.hero-header {
+        margin: 0;
+    }
+
+    div.hero > h2.hero-subheader {
+        margin: 0;
+    }
+}
+
+/* ================== */
+/* PROJECT */
+/* ================== */
+
+div#project {
+    display: flex;
+    max-width: var(--lg-width);
+    width: 90%;
+}
+
+div.projectpanel {
+    width: 100%;
+    margin: 20px 0;
+}
+
+div.projectpanel > p > img {
+    display: block;
+    max-width: 50vw;
+    max-height: 90vh;
+    margin: 20px auto;
+}
+
+div.projectpanel > div.projectphotos {
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+
+div.projectpanel > div.projectphotos > img.artimage {
+    width: 30vw;
+    margin: 20px 40px;
+}
+
+/* ================== */
+/* PDF VIEWER */
+/* ================== */
+
+div.pdf-wrapper {
+    margin: 30px 0 10px 0;
+    width: 100%;
+}
+
+iframe.pdf-frame {
+    width: 100%;
+    height: 85vh;
+    max-height: 1200px;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+div.pdf-placeholder {
+    padding: 20px;
+    border: 1px dashed #d0d0d0;
+    border-radius: 12px;
+    color: var(--color-gray);
+    text-align: center;
+}
+
+.pdf-download {
+    margin: 5px 0 40px 0;
+}
+
+.pdf-download > a {
+    color: var(--color-gray);
+}
+
+@media (max-width: 768px) {
+    iframe.pdf-frame {
+        height: 70vh;
+    }
+}
+
+@media (max-width: 768px) {
+    div.projectpanel {
+        margin-top: 10vh;
+    }
+
+    div.projectpanel > iframe {
+        width: 90%;
+        max-width: 90vw;
+    }
+
+    div.projectpanel > div > iframe {
+        width: 90%;
+        max-width: 90vw;
+    }
+
+    div.projectpanel > p > a {
+        overflow-wrap: break-word;
+    }
+
+    div.projectpanel > p > img {
+        width: 90%;
+        max-width: 90vw;
+    }
+
+    div.projectpanel > div.projectphotos  {
+        display: none;
+    }
+}
+
+img.designimage {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+}
+
+img.designimage:hover {
+    filter: none;
+  }
+
+/* ================== */
+/* ART */
+/* ================== */
+
+div.artsection {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+@media (max-width: 768px) {
+    div.artsection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    div.artsection > img {
+        max-width: 40vw;
+        max-height: 40vw;
+    }
+}
+
+div.artsection > img {
+    width: 225px;
+    height: 225px;
+    object-fit: cover;
+    margin: auto;
+    transition: opacity 0.2s ease-in-out, transform 0.25s ease-in-out;
+}
+
+div.artsection > img:hover {
+    transform: scale(1.05);
+}
+
+div.artsection > div.artlightbox {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    padding: 15vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.25s;
+    opacity: 0;
+}
+
+div.artsection > div.artlightbox > h1 {
+    margin: 10px;
+}
+
+div.artsection > div.artlightbox > img {
+    background-color: aliceblue;
+    max-height: 60vh;
+    max-width: 50vw;
+}
+
+/* ================== */
+/* ABOUT */
+/* ================== */
+
+div#about {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    div#about {
+        flex-direction: column;
+    }
+}
+
+div#about > img {
+    background-color: aliceblue;
+    margin: 20px;
+    max-width: 333px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    div#about > img {
+        display: none;
+    }
+}
+
+div#about > div.aboutcontent {
+    margin: 20px;
+}
+
+div#about > div.aboutcontent > h1 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+div#about > div.aboutcontent > a.contactlink {
+    color: var(--color-gray);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+    margin: 10px;
+}
+
+div#about > div.aboutcontent > a.contactlink:hover {
+    color: var(--color-light-gray);
+}
+
+div#about > div.aboutcontent > span.contactsep {
+    height: 3rem;
+    border-right: 2px var(--color-light-gray) solid;
+    margin: 0;
+}
+
+/* ================== */
+/* CURSOR */
+/* ================== */
+/* div.cursors div{
+  position: absolute;
+  top:300px;
+  left:300px;
+  width:30px;
+  height:30px;
+  background-color:#000000;
+  border-radius:50%;
+  z-index:100000;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+
+}
+
+div.cursors div span {
+  position:absolute;
+  top:0;
+  left:40px;
+  width:300px;
+
+  font-size:32px;
+  font-weight:700;
+  line-height:32px;
+  color:#000000;
+} */
+
+    </style>
+    
+    <script async="" src="../../gtag/js?id=G-Q8N20WQ22Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Q8N20WQ22Z');
+    </script>
+
+
+<script async="" src="../../gtag/js-1?id=G-8HDX5M2YK4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8HDX5M2YK4');
+</script>
+
+</head>
+<body><nav>
+    
+    <div class="navholder">
+        <span class="navlink">
+            <a href="../../index.htm">Home</a>
+        </span>
+        <span class="navlink">
+            <a href="../index.htm">Engineering</a>
+        </span>
+        <span class="navlink">
+            <a href="../../art/index.htm">Art</a>
+        </span>
+        
+        <span class="navlink">
+            <a href="../../about/index.htm">About</a>
+        </span>
+    </div>
+
+    
+    <div id="navholder-mobile" class="navholder-mobile">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">☰</a>
+        <div class="navholder-content">
+            <a href="../../index.htm">Home</a>
+            <a href="../index.htm">Engineering</a>
+            <a href="../../art/index.htm">Art</a>
+            
+            <a href="../../about/index.htm">About</a>
+        </div>
+    </div>
+
+    
+    <span class="hamburger" onclick="openNav()">☰</span>
+</nav><main id="content">
+<div id="project">
+    <div class="projectpanel">
+        <div class="projectphotos">
+            
+                
+                  
+                  
+                  
+                  <img class="artimage fade" loading="lazy" src="../../img/ebikeBatteryCad.png" alt="main.png">
+
+                
+
+            
+        </div>
+
+        
+
+<h1>E-Bike Battery Project (2024 Build)</h1>
+
+<p>
+  In 2024, I had the urge to build an e-bike after finding the Tongsheng TSDZ8 (750W) on sale.
+  At that time, none of the available off-the-shelf battery packs met my specifications — most 
+  were either too expensive, too large, or required long build-to-order lead times. So, I
+  decided to design and build my own battery pack.
+</p>
+
+<h2>Process Overview</h2>
+<ol>
+  <li><p>Informal Analysis</p>
+    <ul>
+      <li><p>Power Requirements</p></li>
+      <li><p>Battery Selection</p></li>
+      <li><p>Thermal Requirements</p></li>
+    </ul>
+  </li>
+  <li><p>Battery Casing Selection</p></li>
+  <li><p>Design Selection & CAD</p></li>
+  <li><p>Final E-Bike Build Photos</p></li>
+  <li><p>Unsorted Notes & Calculations (view at your own risk)</p></li>
+</ol>
+
+
+
+<h2>Power Requirements</h2>
+<p>
+  I started with rough calculations for the power required to maintain various cruising speeds
+  and to climb hills, based on rolling resistance and aerodynamic drag.
+</p>
+
+
+<p><img src="../../img/ebikeBatteryCal1.png" alt="image"></p>
+
+<p>
+  At 28 mph (Class 3) on flat terrain, the bike requires roughly <strong>840 W</strong>.
+  More detailed calculations are available at the bottom of the page.
+</p>
+
+<p>
+  To estimate maximum power demand, I calculated the requirement for a 
+  <strong>10% grade (≈ 5.7°)</strong>, which is considered a steep hill. The result
+  came out to approximately <strong>1798 W</strong>.
+</p>
+
+
+
+<p><img src="../../img/ebikeBatteryCal2.png" alt="image"></p>
+
+
+<p>
+  Of course, you are not climbing a 10% grade at 28 mph on a mid-drive motor. Modern DIY
+  e-bike motors and BMS systems include current limits (many of which can be bypassed), so
+  realistic usage is much lower. In the case of the TSDZ8, its peak power rating is 1150 W.
+</p>
+
+<h2>Energy & Range Requirements</h2>
+<p>
+  My goal was for the bike to achieve at least 15 miles even without pedaling assistance,
+  although realistically I would always pedal since the TSDZ8 uses torque-based assist.
+</p>
+
+<p>
+  Because this battery was going into a 20-inch folding bike, I wanted it compact without
+  sacrificing too much capacity. This narrowed my configuration choices to:
+</p>
+
+<ul>
+  <li><p>13s1p</p></li>
+  <li><p>13s2p</p></li>
+  <li><p>14s1p</p></li>
+  <li><p>14s2p</p></li>
+</ul>
+
+<p>
+  <strong>Series (S):</strong> increases voltage (e.g., 13 × 3.6 V).<br>
+  <strong>Parallel (P):</strong> increases capacity.
+</p>
+
+<p>
+  I ultimately chose <strong>14s2p</strong>, which — using typical 4.5 Ah 21700 cells —
+  provides roughly:
+</p>
+
+<p><strong>14s2p ≈ 454 Wh</strong></p>
+<p>The specific cells I purchased resulted in ~5 Ah, approximately <strong>504 Wh</strong>.</p>
+
+<p><img src="../../img/ebikeBatteryCal3.png" alt="image"></p>
+
+<h2>Battery Cell Selection</h2>
+<p>The two main candidates were:</p>
+<ul>
+  <li><p><strong>EVE 50E 21700</strong> — 5000 mAh, 15A</p></li>
+  <li><p><strong>Molicel P42A</strong> — 4200 mAh, 45A</p></li>
+</ul>
+
+<p>
+  At the time of purchase, the EVE 50E was about 70% the cost of the P42A and met all of my
+  output and capacity requirements, so it became my final choice.
+</p>
+
+<p><img src="../../img/ebikeBatteryEvePlot.png" alt="image"></p>
+
+
+<p>
+  Even though the EVE’s 15A rating is lower than the P42A’s 45A, it can still deliver:
+</p>
+
+<ul>
+  <li><p>~840 W (10A) continuously at 3.0–3.3 V</p></li>
+  <li><p>~1260 W (15A) peak for roughly half the capacity (thermally limited)</p></li>
+</ul>
+
+<p><img src="../../img/ebikeBatteryCal4.png" alt="image"></p>
+
+<p>
+  Since my build is not throttle-only and the motor is 750W nominal / 1150W peak, the EVE
+  cells are sufficient.
+</p>
+
+<h2>Thermal Requirements</h2>
+<p>
+  I like to say I follow Apple’s design philosophy: form over thermals, with anything related
+  to heat treated as an afterthought. (Just sarcasm — I'm actually a fan of the M1 MacBook Pro.)
+</p>
+
+<p>My design goals:</p>
+<ul>
+  <li><p>Simple</p></li>
+  <li><p>Compact</p></li>
+  <li><p>Fully enclosed</p></li>
+  <li><p>No active cooling</p></li>
+  <li><p>Evaluate feasibility through thermal modeling</p></li>
+</ul>
+
+<p>
+  Because I chose 14s2p with EVE 50E cells, I was concerned about heat buildup. With 14s3p or
+  high-discharge cells like P42A, heat concerns would be lower.
+</p>
+
+<h3>Thermal Model Used</h3>
+<ul>
+  <li><p>Single 21700 cell</p></li>
+  <li><p>ABS plastic enclosure</p></li>
+  <li><p>~0.4 mm air gap</p></li>
+  <li><p>1D steady-state conduction/convection model</p></li>
+</ul>
+
+<p>This provided a reasonable worst-case approximation.</p>
+
+<p><img src="../../img/ebikeBatteryCal6.png" alt="image"></p>
+<p><img src="../../img/ebikeBatteryCal7.png" alt="image"></p>
+
+
+<h2>Design Selection & CAD</h2>
+<p>I considered several structural designs:</p>
+
+<h3>1. Bare Cells (Back-to-back)</h3>
+<p>
+  Simple but risky: vibration can wear through insulators, leading to potential shorts.
+</p>
+
+<p><img src="../../img/ebikeBatteryBackToBack.png" alt="image"></p>
+
+
+<h3>2. Double Shrink-Wrap, Back-to-Back</h3>
+<p>
+  Each cell already has shrink wrap; adding another creates four layers of insulation.
+  Common in DIY builds without cell holders.
+</p>
+
+<h3>3. Honeycomb Cell Holders</h3>
+<p>
+  Safe and common in commercial packs, but adds 1–2 mm per row/column, increasing size.
+</p>
+
+<h3>4. Two Custom Spacer Concepts</h3>
+<ul>
+  <li><p>A spacer block with adhesive injection holes, leaving a controlled air gap.</p></li>
+  <li><p>A removable glue-up fixture that provides minimal spacing after assembly.</p></li>
+</ul>
+
+<p>
+  Both would increase cooling gaps and structural safety, but time constraints prevented
+  refinement. Ultimately these details represented only ~5% of the overall project.
+</p>
+<p><img src="../../img/ebikeBatteryDesign.png" alt="image"></p>
+
+<h2>Final Decision</h2>
+<p>
+  I ultimately went with the double shrink-wrap, back-to-back method.
+</p>
+
+<h2>Final Build</h2>
+
+
+
+<p><img src="../../img/ebikeBatteryCad.png" alt="image"></p>
+<p><img src="../../img/ebikeBatteryBuild.jpg" alt="image"></p>
+<p><img src="../../img/ebikeBatteryBike.jpg" alt="image"></p>
+
+<h2 id="unsorted-notes">Unsorted Notes &amp; Calculations</h2>
+<p>Raw notes and scratch calculations. If the embedded viewer does not appear, use the download link below.</p>
+<div class="pdf-wrapper" data-pdf-src="./ebikeBatteryNote1.pdf">
+  <div class="pdf-placeholder">Loading PDF...</div>
+</div>
+<!-- <p class="pdf-download"><a href="./ebikeBatteryNote1.pdf">Download Note 1</a></p> -->
+
+<div class="pdf-wrapper" data-pdf-src="./ebikeBatteryNote2.pdf">
+  <div class="pdf-placeholder">Loading PDF...</div>
+</div>
+<!-- <p class="pdf-download"><a href="./ebikeBatteryNote2.pdf">Download Note 2</a></p> -->
+
+
+
+</div>
+</div>
+
+        </main><div class="cursors">
+<div></div>
+</div>
+
+
+
+<script src="../../ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+    // Fade in
+$(window).on("load", function () {
+    $(window).scroll(function () {
+        var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+        $(".fade").each(function () {
+            /* Check the location of each desired element */
+            var objectBottom = $(this).offset().top + $(this).outerHeight() / 2;
+
+            /* If the element is completely within bounds of the window, fade it in */
+            if (!(objectBottom > windowBottom)) { //object comes into view (scrolling down)
+                $(this).addClass("faded-in")
+            } else { //object goes out of view (scrolling up)
+                $(this).removeClass("faded-in")
+            }
+        });
+    }).scroll(); //invoke scroll-handler on page-load
+});
+
+// Lightboxes
+Array.from(document.getElementsByClassName("artimage"))
+    .map(e => e.addEventListener("click", (event) => {
+        const lightbox = event.target.nextElementSibling
+        lightbox.style.opacity = 1
+        lightbox.style.zIndex = 1
+    }))
+
+Array.from(document.getElementsByClassName("artlightbox"))
+    .map(e => e.addEventListener("click", (event) => {
+        const lightbox = event.target
+        if (lightbox.tagName === "DIV") {
+            lightbox.style.opacity = 0
+            lightbox.style.zIndex = -1
+        }
+    }))
+
+// Navbar
+function openNav() {
+    document.getElementById("navholder-mobile").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("navholder-mobile").style.height = "0%";
+}
+
+// Inline PDF viewers (only render if the file exists)
+(function () {
+    const wrappers = document.querySelectorAll(".pdf-wrapper[data-pdf-src]");
+    if (!wrappers.length) return;
+
+    wrappers.forEach((wrapper) => {
+        const pdfSrc = wrapper.getAttribute("data-pdf-src");
+        if (!pdfSrc) return;
+
+        const placeholder = wrapper.querySelector(".pdf-placeholder");
+
+        fetch(pdfSrc, { method: "HEAD" })
+            .then((response) => {
+                if (!response.ok) {
+                    if (placeholder) placeholder.textContent = "Notes PDF coming soon.";
+                    return;
+                }
+
+                const iframe = document.createElement("iframe");
+                iframe.className = "pdf-frame";
+                iframe.src = `${pdfSrc}#view=FitH`;
+                iframe.title = `Embedded PDF: ${pdfSrc}`;
+                iframe.loading = "lazy";
+                wrapper.replaceChildren(iframe);
+            })
+            .catch(() => {
+                if (placeholder) placeholder.textContent = "Notes PDF coming soon.";
+            });
+    });
+})();
+</script>
+
+
+</body>
+</html>

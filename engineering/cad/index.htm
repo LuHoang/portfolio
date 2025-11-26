@@ -1,0 +1,798 @@
+﻿<!DOCTYPE html>
+<html><head>
+    <title>Miscellaneous CAD</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Christine Zhou's portfolio website">
+    <meta name="keywords" content="Christine Zhou, Design, Portfolio, Art, Engineering, Mechanical Engineering, Brown University, Brown, Providence">
+    <meta name="author" content="Christine Zhou">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href='../../img/logo.png'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    
+    <link href="../../css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style type="text/css" media="screen">
+        /* ================== */
+/* HOUSEKEEPING */
+/* ================== */
+
+:root {
+    --sm-width: 768px;
+    --md-width: 992px;
+    --lg-width: 1200px;
+    --color-light-gray: #999;
+    --color-gray: #666;
+    --color-dark-gray: #555;
+    --color-black: #000;
+    --font-header: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 13px;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1,
+h2 {
+    font-family: var(--font-header);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-header);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+
+p {
+    line-height: 1.75rem;
+}
+
+ul,
+ol,
+li > p {
+    margin: 0;
+}
+
+img {
+    border-radius: 25px;
+}
+
+button {
+    border: none;
+    background-color: var(--color-gray);
+    color: white;
+    padding: 15px 30px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: var(--color-dark-gray);
+}
+
+/* =================================== */
+/* EFFECTS */
+/* =================================== */
+
+.fade {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.faded-in {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/* ================== */
+/* NAV */
+/* ================== */
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+div.navholder {
+    width: 90%;
+    max-width: var(--lg-width);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+span.navlink {
+    margin: 20px;
+}
+
+span.navlink > a {
+    color: var(--color-gray);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+span.navlink > a:hover {
+    color: var(--color-light-gray);
+}
+
+div.navholder-mobile {
+    display: none;
+}
+
+span.hamburger {
+    display: none;
+    z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+    div.navholder {
+        display: none;
+    }
+
+    div.navholder-mobile {
+        display: block;
+        height: 0;
+        width: 100%;
+        position: fixed;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        /* background-color: white; */
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+
+    a.closebtn {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 40px;
+        color: var(--color-black);
+        text-decoration: none;
+    }
+
+    div.navholder-content {
+        position: relative;
+        top: 10%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    div.navholder-content > a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 24px;
+        color: var(--color-black);
+        display: block;
+        text-transform: uppercase;
+    }
+
+    span.hamburger {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 40px;
+      }
+}
+
+/* ================== */
+/* MAIN */
+/* ================== */
+
+main#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div#main {
+    width: 95%;
+    max-width: var(--lg-width);
+}
+
+div#mainSec > h1 {
+    margin: 80px 0 10px 0;
+    text-align: center;
+}
+
+div#mainSec > h5 {
+    margin: 10px 0 45px 0;
+    text-align: center;
+}
+
+div#gridSec {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+@media (max-width: 768px) {
+    div#gridSec {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    div.gridElt {
+        text-align: center;
+    }
+}
+
+div.gridElt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.gridElt > h2 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+div.gridElt > p {
+    margin-top: 0;
+    color: var(--color-dark-gray);
+    font-size: 0.75rem;
+}
+
+div.gridElt > a > img {
+    width: 300px;
+    height: 300px;
+    transition: opacity 0.2s ease-in-out, transform 0.25s ease-in-out;
+}
+
+div.gridElt > a > img:hover {
+    transform: scale(1.05);
+}
+
+/* ================== */
+/* HOME */
+/* ================== */
+
+div.landingoptions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 768px) {
+    div.landingoptions {
+        flex-direction: column;
+    }
+}
+
+div.landingoptiondiv {
+    transition: transform 0.25s;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    margin: 0 20px;
+}
+
+div.landingoptiondiv:hover {
+    transform: scale(1.05);
+}
+
+div.landingoptiondiv > h2 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+div.landingoptiondiv > p {
+    margin-top: 0;
+    color: var(--color-dark-gray);
+    font-size: 0.75rem;
+}
+
+a.landingoption {
+    width: 100%;
+    height: 300px;
+    max-height: 50vh;
+    padding: 20px;
+    border-radius: 25px;
+    background-size: cover;
+    background-position: center;
+}
+
+div.hero {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.hero > a > img.hero-img {
+    width: 150px;
+}
+
+div.hero > h1.hero-header {
+    color: var(--color-black);
+    font-weight: 600;
+}
+
+div.hero > h2.hero-subheader {
+    color: var(--color-gray);
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    div.hero > a > img.hero-img {
+        width: 100px;
+    }
+
+    div.hero > h1.hero-header {
+        margin: 0;
+    }
+
+    div.hero > h2.hero-subheader {
+        margin: 0;
+    }
+}
+
+/* ================== */
+/* PROJECT */
+/* ================== */
+
+div#project {
+    display: flex;
+    max-width: var(--lg-width);
+    width: 90%;
+}
+
+div.projectpanel {
+    width: 100%;
+    margin: 20px 0;
+}
+
+div.projectpanel > p > img {
+    display: block;
+    max-width: 50vw;
+    max-height: 90vh;
+    margin: 20px auto;
+}
+
+div.projectpanel > div.projectphotos {
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+
+div.projectpanel > div.projectphotos > img.artimage {
+    width: 30vw;
+    margin: 20px 40px;
+}
+
+@media (max-width: 768px) {
+    div.projectpanel {
+        margin-top: 10vh;
+    }
+
+    div.projectpanel > iframe {
+        width: 90%;
+        max-width: 90vw;
+    }
+
+    div.projectpanel > div > iframe {
+        width: 90%;
+        max-width: 90vw;
+    }
+
+    div.projectpanel > p > a {
+        overflow-wrap: break-word;
+    }
+
+    div.projectpanel > p > img {
+        width: 90%;
+        max-width: 90vw;
+    }
+
+    div.projectpanel > div.projectphotos  {
+        display: none;
+    }
+}
+
+img.designimage {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+}
+
+img.designimage:hover {
+    filter: none;
+  }
+
+/* ================== */
+/* ART */
+/* ================== */
+
+div.artsection {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+@media (max-width: 768px) {
+    div.artsection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    div.artsection > img {
+        max-width: 40vw;
+        max-height: 40vw;
+    }
+}
+
+div.artsection > img {
+    width: 225px;
+    height: 225px;
+    object-fit: cover;
+    margin: auto;
+    transition: opacity 0.2s ease-in-out, transform 0.25s ease-in-out;
+}
+
+div.artsection > img:hover {
+    transform: scale(1.05);
+}
+
+div.artsection > div.artlightbox {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    padding: 15vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.25s;
+    opacity: 0;
+}
+
+div.artsection > div.artlightbox > h1 {
+    margin: 10px;
+}
+
+div.artsection > div.artlightbox > img {
+    background-color: aliceblue;
+    max-height: 60vh;
+    max-width: 50vw;
+}
+
+/* ================== */
+/* ABOUT */
+/* ================== */
+
+div#about {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    div#about {
+        flex-direction: column;
+    }
+}
+
+div#about > img {
+    background-color: aliceblue;
+    margin: 20px;
+    max-width: 333px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    div#about > img {
+        display: none;
+    }
+}
+
+div#about > div.aboutcontent {
+    margin: 20px;
+}
+
+div#about > div.aboutcontent > h1 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+div#about > div.aboutcontent > a.contactlink {
+    color: var(--color-gray);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+    margin: 10px;
+}
+
+div#about > div.aboutcontent > a.contactlink:hover {
+    color: var(--color-light-gray);
+}
+
+div#about > div.aboutcontent > span.contactsep {
+    height: 3rem;
+    border-right: 2px var(--color-light-gray) solid;
+    margin: 0;
+}
+
+/* ================== */
+/* CURSOR */
+/* ================== */
+/* div.cursors div{
+  position: absolute;
+  top:300px;
+  left:300px;
+  width:30px;
+  height:30px;
+  background-color:#000000;
+  border-radius:50%;
+  z-index:100000;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+
+}
+
+div.cursors div span {
+  position:absolute;
+  top:0;
+  left:40px;
+  width:300px;
+
+  font-size:32px;
+  font-weight:700;
+  line-height:32px;
+  color:#000000;
+} */
+
+    </style>
+    
+    <script async="" src="../../gtag/js?id=G-Q8N20WQ22Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Q8N20WQ22Z');
+    </script>
+
+
+<script async="" src="../../gtag/js-1?id=G-8HDX5M2YK4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8HDX5M2YK4');
+</script>
+
+</head>
+<body><nav>
+    
+    <div class="navholder">
+        <span class="navlink">
+            <a href="../../index.htm">Home</a>
+        </span>
+        <span class="navlink">
+            <a href="../index.htm">Engineering</a>
+        </span>
+        <span class="navlink">
+            <a href="../../art/index.htm">Art</a>
+        </span>
+        
+        <span class="navlink">
+            <a href="../../about/index.htm">About</a>
+        </span>
+    </div>
+
+    
+    <div id="navholder-mobile" class="navholder-mobile">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">☰</a>
+        <div class="navholder-content">
+            <a href="../../index.htm">Home</a>
+            <a href="../index.htm">Engineering</a>
+            <a href="../../art/index.htm">Art</a>
+            
+            <a href="../../about/index.htm">About</a>
+        </div>
+    </div>
+
+    
+    <span class="hamburger" onclick="openNav()">☰</span>
+</nav><main id="content">
+<div id="project">
+    <div class="projectpanel">
+        <div class="projectphotos">
+            
+                
+                  
+                  
+                  
+                  <img class="artimage fade" loading="lazy" src="../../img/engineering/cad/main.png" alt="main.png">
+                  
+                
+
+            
+        </div><h1 id="miscellaneous-cad">Miscellaneous CAD</h1>
+<h2 id="overview">Overview</h2>
+<p>Here are some of my favorite CAD models I&rsquo;ve made. Details of my 3D modeling processes are below.</p>
+<p><img src="../../img/Lambo7.PNG" alt="Lambo Final">
+<img src="../../img/barcelonapavilion4_2.PNG" alt="Barcelona Pavilion Final">
+<img src="../../img/engn1740projectsrendered.PNG" alt="ENGN1740 Final"></p>
+<h2 id="modeling-a-car-lamborghini-aventador">Modeling a Car: Lamborghini Aventador</h2>
+<p>I&rsquo;ve always wondered how cars are 3D modeled &ndash; the complex and curvilinear surfaces were a mystery to me. During Summer 2021, I decided to finally jump in and learn how to CAD a car.</p>
+<p>I began by finding blueprints of the top, side, front, and back views of the Lamborghini Aventador.</p>
+<!---
+![Front](/img/front side.PNG)
+![Top](/img/top side.PNG)
+![Right](/img/right side.PNG)
+![Back](/img/back side.PNG)
+-->
+<p>I then laid them out on planes.</p>
+<p><img src="../../img/blueprintplanes.PNG" alt="Blueprint Planes"></p>
+<p>After that, I started making boundary surfaces to model the shapes of each face, constantly switching between the front, back, side, and top views to match the edges of my surfaces to the blueprints.</p>
+<p><img src="../../img/boundarysurface.PNG" alt="Boundary Surface">
+<img src="../../img/lamboprocess.PNG" alt="Process"></p>
+<p>Using SolidWorks Evaluate tools such as Zebra Stripes and Curvature helps to confirm that the boundary surfaces have the correct curvature and edges.</p>
+<p><img src="../../img/lambozebra.PNG" alt="Zebra Stripes">
+<img src="../../img/lambocurve.PNG" alt="Curvature"></p>
+<p>By the end, I had exactly 100 boundary surfaces and over 200 sketches (each boundary surface is made up of 2-3 sketches).</p>
+<p><img src="../../img/100surfaces.PNG" alt="100 Surfaces">
+<img src="../../img/frontSWlambo.PNG" alt="Front SW View">
+<img src="../../img/backSWlambo.PNG" alt="Back SW View"></p>
+<p>When I finished all the surfaces, I then used the PhotoView 360 SolidWorks add-in to render my car. Here are the final renders!</p>
+<p><img src="../../img/Lambo7.PNG" alt="Lambo Final"></p>
+<h2 id="modeling-a-building-barcelona-pavilion">Modeling a Building: Barcelona Pavilion</h2>
+<p>For my HIAA0850 final project, I constructed a digital 3D model of the Barcelona Pavilion (arch. Ludwig Mies van der Rohe). My process involved creating the 3D CAD model of the Barcelona Pavilion in SolidWorks, assigning materials and setting up lighting, scenes, and camera positions in Adobe Dimension, producing photo-realistic renders in Adobe Dimension, editing rendered photos in Adobe Lightroom, and putting together flythrough clips and edited renders in Adobe Premiere Pro, producing a final video.</p>
+<p>In creating the CAD model, I overlaid the floor plan and front, side, and back views of the Pavilion onto the Front, Top, and Right planes in SolidWorks. I began tracing 2D projections over the blueprint. Then, I extruded these 2D sketches, resulting in 3D walls. I added in details afterwards, such as the sunken area for the pools of water, the panels of glass, and the structural supports.</p>
+<p><img src="../../img/barcelonapavilion_1.PNG" alt="Barcelona Pavilion 1">
+<img src="../../img/barcelonapavilion_2.PNG" alt="Barcelona Pavilion 2"></p>
+<p>For the renders, I assigned materials to the walls of my CAD model. Adobe Dimension’s material selection is limited, so occasionally I needed to substitute in visually similar materials, such as using cedar wood for the marble floors and ceilings. I also needed to adjust the materials’ roughness, pattern repetitiveness, reflectivity, and color.</p>
+<p><img src="../../img/barcelonapavilion_3.PNG" alt="Barcelona Pavilion 3"></p>
+<p>I also needed to set the lighting in my scenes; I experienced the difficulty of interior lighting. I learned how to strategically place lights to illuminate the greatest area with walls as constraints. A similar computational geometry problem, the art gallery problem, is a problem of guarding an art gallery with the minimum number of guards who together can observe the entire gallery, which has walls and concave side rooms. The trick is to place the guards at the vertices of the side rooms so that they can see into the side rooms as well as portions of the main room. Following this principle, I placed my lights at the vertices of the Pavilion’s side rooms when I needed to illuminate the building interior.</p>
+<p>Here&rsquo;s a comparison of the real-life photo vs. my rendered CAD model!</p>
+<p><img src="../../img/barcelonapavilion_comparison.PNG" alt="Barcelona Pavilion Comparison Photo"></p>
+<h2 id="engn1740-computer-aided-visualization-and-design-projects">ENGN1740: Computer Aided Visualization and Design Projects</h2>
+<p>In my ENGN1740: Computer Aided Visualization and Design class at Brown University, our projects asked us to choose objects of varying complexity to model in SolidWorks and dimension in drawings that adhere to ASME Y14.5 2009 standards.</p>
+<p>I decided to model the following objects:</p>
+<ul>
+<li>
+<p>Mousetrap (assembly)</p>
+</li>
+<li>
+<p>USB-C Adapter (part)</p>
+</li>
+<li>
+<p>Clothespin (part)</p>
+</li>
+<li>
+<p>Ruler (part)</p>
+</li>
+</ul>
+<h3 id="solidworks-models">SolidWorks Models</h3>
+<p><img src="../../img/engn1740_1.png" alt="Project 1">
+<img src="../../img/engn1740_2.png" alt="Project 2">
+<img src="../../img/engn1740_3.png" alt="Project 3">
+<img src="../../img/engn1740_4.png" alt="Project 4"></p>
+<h3 id="modal-analysis">Modal Analysis</h3>
+<p>I performed modal analysis of the plastic cheese mousetrap component in Fusion 360. There are pin constraints in the connector area, a downward force from the bait on the triangular platform, and a point load from the trigger wire.</p>
+<p><img src="../../img/modal.png" alt="Cheese Modal Analysis"></p>
+<h3 id="solidworks-drawings">SolidWorks Drawings</h3>
+<p>For the mousetrap assembly, I made drawings of several mousetrap part components following ASME Y14.5 2009 standards.</p>
+<p><img src="../../img/zhou_mousetrapcheese.png" alt="Mousetrap Drawing 1">
+<img src="../../img/zhou_mousetrapwiresquare3.png" alt="Mousetrap Drawing 2"></p>
+<h3 id="final-render">Final Render</h3>
+<p>I rendered a couple of the CAD projects in Adobe Dimension, for fun!</p>
+<p><img src="../../img/engn1740projectsrendered.PNG" alt="ENGN1740 Projects"></p>
+<!-- DO NOT TOUCH -->
+<p>​</p>
+<!-- DO NOT TOUCH -->
+<p>​</p>
+<!-- DO NOT TOUCH -->
+<!-- DO NOT TOUCH -->
+<p>​</p>
+<!-- DO NOT TOUCH -->
+<p>​</p>
+<!-- DO NOT TOUCH -->
+</div>
+</div>
+
+        </main><div class="cursors">
+<div></div>
+</div>
+
+
+
+<script src="../../ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+    // Fade in
+$(window).on("load", function () {
+    $(window).scroll(function () {
+        var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+        $(".fade").each(function () {
+            /* Check the location of each desired element */
+            var objectBottom = $(this).offset().top + $(this).outerHeight() / 2;
+
+            /* If the element is completely within bounds of the window, fade it in */
+            if (!(objectBottom > windowBottom)) { //object comes into view (scrolling down)
+                $(this).addClass("faded-in")
+            } else { //object goes out of view (scrolling up)
+                $(this).removeClass("faded-in")
+            }
+        });
+    }).scroll(); //invoke scroll-handler on page-load
+});
+
+// Lightboxes
+Array.from(document.getElementsByClassName("artimage"))
+    .map(e => e.addEventListener("click", (event) => {
+        const lightbox = event.target.nextElementSibling
+        lightbox.style.opacity = 1
+        lightbox.style.zIndex = 1
+    }))
+
+Array.from(document.getElementsByClassName("artlightbox"))
+    .map(e => e.addEventListener("click", (event) => {
+        const lightbox = event.target
+        if (lightbox.tagName === "DIV") {
+            lightbox.style.opacity = 0
+            lightbox.style.zIndex = -1
+        }
+    }))
+
+// Navbar
+function openNav() {
+    document.getElementById("navholder-mobile").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("navholder-mobile").style.height = "0%";
+}
+</script>
+
+
+</body>
+</html>
