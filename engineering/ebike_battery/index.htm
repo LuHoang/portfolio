@@ -657,7 +657,7 @@ div.cursors div span {
             
                   
                   
-                  <img class="artimage fade" loading="lazy" src="../../img/ebikeBatteryCad.png" alt="main.png">
+                  <img class="artimage fade" loading="lazy" src="../../img/engineering/ebike_battery/ebikeBatteryCad.png" alt="main.png">
 
                 
 
@@ -670,7 +670,7 @@ div.cursors div span {
 
 <p>
   In 2024, I had the urge to build an e-bike after finding the Tongsheng TSDZ8 (750W) on sale.
-  At that time, none of the available off-the-shelf battery packs met my specifications — most 
+  At that time, none of the available off-the-shelf battery packs met my specifications, most 
   were either too expensive, too large, or required long build-to-order lead times. So, I
   decided to design and build my own battery pack.
 </p>
@@ -686,7 +686,7 @@ div.cursors div span {
   </li>
   <li><p>Battery Casing Selection</p></li>
   <li><p>Design Selection & CAD</p></li>
-  <li><p>Final E-Bike Build Photos</p></li>
+  <li><p>Final: E-Bike Build and Photos</p></li>
   <li><p>Unsorted Notes & Calculations (view at your own risk)</p></li>
 </ol>
 
@@ -699,7 +699,7 @@ div.cursors div span {
 </p>
 
 
-<p><img src="../../img/ebikeBatteryCal1.png" alt="image"></p>
+<p><img src="../../img/engineering/ebike_battery/ebikeBatteryCal1.png" alt="image"></p>
 
 <p>
   At 28 mph (Class 3) on flat terrain, the bike requires roughly <strong>840 W</strong>.
@@ -714,7 +714,7 @@ div.cursors div span {
 
 
 
-<p><img src="../../img/ebikeBatteryCal2.png" alt="image"></p>
+<p><img src="../../img/engineering/ebike_battery/ebikeBatteryCal2.png" alt="image"></p>
 
 
 <p>
@@ -754,7 +754,7 @@ div.cursors div span {
 <p><strong>14s2p ≈ 454 Wh</strong></p>
 <p>The specific cells I purchased resulted in ~5 Ah, approximately <strong>504 Wh</strong>.</p>
 
-<p><img src="../../img/ebikeBatteryCal3.png" alt="image"></p>
+<p><img src="../../img/engineering/ebike_battery/ebikeBatteryCal3.png" alt="image"></p>
 
 <h2>Battery Cell Selection</h2>
 <p>The two main candidates were:</p>
@@ -768,7 +768,7 @@ div.cursors div span {
   output and capacity requirements, so it became my final choice.
 </p>
 
-<p><img src="../../img/ebikeBatteryEvePlot.png" alt="image"></p>
+<p><img src="../../img/engineering/ebike_battery/ebikeBatteryEvePlot.png" alt="image"></p>
 
 
 <p>
@@ -780,7 +780,7 @@ div.cursors div span {
   <li><p>~1260 W (15A) peak for roughly half the capacity (thermally limited)</p></li>
 </ul>
 
-<p><img src="../../img/ebikeBatteryCal4.png" alt="image"></p>
+<p><img src="../../img/engineering/ebike_battery/ebikeBatteryCal4.png" alt="image"></p>
 
 <p>
   Since my build is not throttle-only and the motor is 750W nominal / 1150W peak, the EVE
@@ -790,7 +790,7 @@ div.cursors div span {
 <h2>Thermal Requirements</h2>
 <p>
   I like to say I follow Apple’s design philosophy: form over thermals, with anything related
-  to heat treated as an afterthought. (Just sarcasm — I'm actually a fan of the M1 MacBook Pro.)
+  to heat treated as an afterthought. (Just sarcasm, I actually owned the M1 MacBook Pro.)
 </p>
 
 <p>My design goals:</p>
@@ -817,8 +817,12 @@ div.cursors div span {
 
 <p>This provided a reasonable worst-case approximation.</p>
 
-<p><img src="../../img/ebikeBatteryCal6.png" alt="image"></p>
-<p><img src="../../img/ebikeBatteryCal7.png" alt="image"></p>
+<p><img src="../../img/engineering/ebike_battery/ebikeBatteryCal6.png" alt="image"></p>
+<p><img src="../../img/engineering/ebike_battery/ebikeBatteryCal7.png" alt="image"></p>
+
+
+
+
 
 
 <h2>Design Selection & CAD</h2>
@@ -829,7 +833,7 @@ div.cursors div span {
   Simple but risky: vibration can wear through insulators, leading to potential shorts.
 </p>
 
-<p><img src="../../img/ebikeBatteryBackToBack.png" alt="image"></p>
+<p><img src="../../img/engineering/ebike_battery/ebikeBatteryBackToBack.png" alt="image"></p>
 
 
 <h3>2. Double Shrink-Wrap, Back-to-Back</h3>
@@ -850,24 +854,29 @@ div.cursors div span {
 </ul>
 
 <p>
-  Both would increase cooling gaps and structural safety, but time constraints prevented
-  refinement. Ultimately these details represented only ~5% of the overall project.
+    Both would allow better cooling gaps, these would leave a minimize 
+    gap between the battery, more compact than the commercial spacer. but time constraints 
+    prevented me from refining them. And the end of the day, it is just part of the 5% of the project.
 </p>
-<p><img src="../../img/ebikeBatteryDesign.png" alt="image"></p>
+<p><img src="../../img/engineering/ebike_battery/ebikeBatteryDesign.png" alt="image"></p>
 
-<h2>Final Decision</h2>
+<h3>Final Decision</h3>
 <p>
   I ultimately went with the double shrink-wrap, back-to-back method.
 </p>
+<p><img src="../../img/engineering/ebike_battery/ebikeBatteryCad.png" alt="image"></p>
+
 
 <h2>Final Build</h2>
 
 
 
-<p><img src="../../img/ebikeBatteryCad.png" alt="image"></p>
-<p><img src="../../img/ebikeBatteryBuild.jpg" alt="image"></p>
-<p><img src="../../img/ebikeBatteryBike.jpg" alt="image"></p>
-
+<p><img src="../../img/engineering/ebike_battery/ebikeBatteryBuild.jpg" alt="image"></p>
+<p><img src="../../img/engineering/ebike_battery/ebikeBatteryBike.jpg" alt="image"></p>
+<div style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center; align-items:flex-start;">
+    <img src="../../img/engineering/ebike_battery/ebikeBatteryBms1.png" alt="BMS test 1" style="max-width:34%; min-width:280px; height:auto; border-radius:12px;">
+    <img src="../../img/engineering/ebike_battery/ebikeBatteryBms2.png" alt="BMS test 2" style="max-width:34%; min-width:280px; height:auto; border-radius:12px;">
+  </div>
 <h2 id="unsorted-notes">Unsorted Notes &amp; Calculations</h2>
 <p>Raw notes and scratch calculations. If the embedded viewer does not appear, use the download link below.</p>
 <div class="pdf-wrapper" data-pdf-src="./ebikeBatteryNote1.pdf">
