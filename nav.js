@@ -2,7 +2,7 @@
   const links = [
     { label: "Home", path: "index.htm" },
     { label: "Engineering", path: "engineering/index.htm" },
-    { label: "Extras", path: "Extras/index.htm" },
+    { label: "Extras", path: "extras/index.htm" },
     { label: "About", path: "about/index.htm" },
   ];
 
