@@ -1,0 +1,908 @@
+﻿<!DOCTYPE html>
+<html><head>
+    <title>Extras</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Christine Zhou's portfolio website">
+    <meta name="keywords" content="Christine Zhou, Design, Portfolio, Art, Engineering, Mechanical Engineering, Brown University, Brown, Providence">
+    <meta name="author" content="Christine Zhou">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href='../img/logo.png'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    
+    <link href="../css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style type="text/css" media="screen">
+        /* ================== */
+/* HOUSEKEEPING */
+/* ================== */
+
+:root {
+    --sm-width: 768px;
+    --md-width: 992px;
+    --lg-width: 1200px;
+    --color-light-gray: #999;
+    --color-gray: #666;
+    --color-dark-gray: #555;
+    --color-black: #000;
+    --font-header: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 13px;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1,
+h2 {
+    font-family: var(--font-header);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-header);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+
+p {
+    line-height: 1.75rem;
+}
+
+ul,
+ol,
+li > p {
+    margin: 0;
+}
+
+img {
+    border-radius: 25px;
+}
+
+button {
+    border: none;
+    background-color: var(--color-gray);
+    color: white;
+    padding: 15px 30px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: var(--color-dark-gray);
+}
+
+/* =================================== */
+/* EFFECTS */
+/* =================================== */
+
+.fade {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.faded-in {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/* ================== */
+/* NAV */
+/* ================== */
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+div.navholder {
+    width: 90%;
+    max-width: var(--lg-width);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+span.navlink {
+    margin: 20px;
+}
+
+span.navlink > a {
+    color: var(--color-gray);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+span.navlink > a:hover {
+    color: var(--color-light-gray);
+}
+
+div.navholder-mobile {
+    display: none;
+}
+
+span.hamburger {
+    display: none;
+    z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+    div.navholder {
+        display: none;
+    }
+
+    div.navholder-mobile {
+        display: block;
+        height: 0;
+        width: 100%;
+        position: fixed;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        /* background-color: white; */
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+
+    a.closebtn {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 40px;
+        color: var(--color-black);
+        text-decoration: none;
+    }
+
+    div.navholder-content {
+        position: relative;
+        top: 10%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    div.navholder-content > a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 24px;
+        color: var(--color-black);
+        display: block;
+        text-transform: uppercase;
+    }
+
+    span.hamburger {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 40px;
+      }
+}
+
+/* ================== */
+/* MAIN */
+/* ================== */
+
+main#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div#main {
+    width: 95%;
+    max-width: var(--lg-width);
+}
+
+div#mainSec > h1 {
+    margin: 80px 0 10px 0;
+    text-align: center;
+}
+
+div#mainSec > h5 {
+    margin: 10px 0 45px 0;
+    text-align: center;
+}
+
+div#gridSec {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+@media (max-width: 768px) {
+    div#gridSec {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    div.gridElt {
+        text-align: center;
+    }
+}
+
+div.gridElt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.gridElt > h2 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+div.gridElt > p {
+    margin-top: 0;
+    color: var(--color-dark-gray);
+    font-size: 0.75rem;
+}
+
+div.gridElt > a > img {
+    width: 300px;
+    height: 300px;
+    transition: opacity 0.2s ease-in-out, transform 0.25s ease-in-out;
+}
+
+div.gridElt > a > img:hover {
+    transform: scale(1.05);
+}
+
+/* ================== */
+/* HOME */
+/* ================== */
+
+div.landingoptions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 768px) {
+    div.landingoptions {
+        flex-direction: column;
+    }
+}
+
+div.landingoptiondiv {
+    transition: transform 0.25s;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    margin: 0 20px;
+}
+
+div.landingoptiondiv:hover {
+    transform: scale(1.05);
+}
+
+div.landingoptiondiv > h2 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+div.landingoptiondiv > p {
+    margin-top: 0;
+    color: var(--color-dark-gray);
+    font-size: 0.75rem;
+}
+
+a.landingoption {
+    width: 100%;
+    height: 300px;
+    max-height: 50vh;
+    padding: 20px;
+    border-radius: 25px;
+    background-size: cover;
+    background-position: center;
+}
+
+div.hero {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.hero > a > img.hero-img {
+    width: 150px;
+}
+
+div.hero > h1.hero-header {
+    color: var(--color-black);
+    font-weight: 600;
+}
+
+div.hero > h2.hero-subheader {
+    color: var(--color-gray);
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    div.hero > a > img.hero-img {
+        width: 100px;
+    }
+
+    div.hero > h1.hero-header {
+        margin: 0;
+    }
+
+    div.hero > h2.hero-subheader {
+        margin: 0;
+    }
+}
+
+/* ================== */
+/* PROJECT */
+/* ================== */
+
+div#project {
+    display: flex;
+    max-width: var(--lg-width);
+    width: 90%;
+}
+
+div.projectpanel {
+    width: 100%;
+    margin: 20px 0;
+}
+
+div.projectpanel > p > img {
+    display: block;
+    max-width: 50vw;
+    max-height: 90vh;
+    margin: 20px auto;
+}
+
+div.projectpanel > div.projectphotos {
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+
+div.projectpanel > div.projectphotos > img.artimage {
+    width: 30vw;
+    margin: 20px 40px;
+}
+
+@media (max-width: 768px) {
+    div.projectpanel {
+        margin-top: 10vh;
+    }
+
+    div.projectpanel > iframe {
+        width: 90%;
+        max-width: 90vw;
+    }
+
+    div.projectpanel > div > iframe {
+        width: 90%;
+        max-width: 90vw;
+    }
+
+    div.projectpanel > p > a {
+        overflow-wrap: break-word;
+    }
+
+    div.projectpanel > p > img {
+        width: 90%;
+        max-width: 90vw;
+    }
+
+    div.projectpanel > div.projectphotos  {
+        display: none;
+    }
+}
+
+img.designimage {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+}
+
+img.designimage:hover {
+    filter: none;
+  }
+
+/* ================== */
+/* ART */
+/* ================== */
+
+div.extrasSection {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+@media (max-width: 768px) {
+    div.extrasSection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.extrasSection .extras-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.extrasSection img.artimage {
+    width: 100%;
+    /* max-width: 225px; defaultl */
+    max-width: 350px;
+
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin: auto;
+    transition: opacity 0.2s ease-in-out, transform 0.25s ease-in-out;
+}
+
+.extrasSection img.artimage:hover {
+    transform: scale(1.05);
+}
+
+.extrasSection .artlightbox {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    padding: 15vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.25s;
+    opacity: 0;
+}
+
+.extrasSection .artlightbox > h1 {
+    margin: 10px;
+}
+
+.extrasSection .artlightbox > img {
+    background-color: aliceblue;
+    max-height: 60vh;
+    max-width: 50vw;
+}
+
+/* Gallery overlay */
+.gallery-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.gallery-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.gallery-frame {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.gallery-frame img {
+    max-width: 90vw;
+    max-height: 70vh;
+    border-radius: 12px;
+    object-fit: contain;
+    background: #fff;
+    padding: 8px;
+}
+
+.gallery-caption {
+    color: #fff;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.gallery-close,
+.gallery-prev,
+.gallery-next {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.gallery-close {
+    top: -44px;
+    right: -4px;
+}
+
+.gallery-prev {
+    left: -54px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gallery-next {
+    right: -54px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+    .gallery-frame img {
+        max-height: 60vh;
+    }
+    .gallery-prev,
+    .gallery-next {
+        left: 10px;
+        right: 10px;
+        top: auto;
+        bottom: -46px;
+        transform: none;
+    }
+}
+
+.extras-caption {
+    text-align: center;
+    margin: 0 0 12px 0;
+}
+
+.extras-caption h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.extras-caption p {
+    margin: 4px 0 0 0;
+    font-size: 0.85rem;
+    color: var(--color-dark-gray);
+}
+
+/* ================== */
+/* ABOUT */
+/* ================== */
+
+div#about {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    div#about {
+        flex-direction: column;
+    }
+}
+
+div#about > img {
+    background-color: aliceblue;
+    margin: 20px;
+    max-width: 333px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    div#about > img {
+        display: none;
+    }
+}
+
+div#about > div.aboutcontent {
+    margin: 20px;
+}
+
+div#about > div.aboutcontent > h1 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+div#about > div.aboutcontent > a.contactlink {
+    color: var(--color-gray);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+    margin: 10px;
+}
+
+div#about > div.aboutcontent > a.contactlink:hover {
+    color: var(--color-light-gray);
+}
+
+div#about > div.aboutcontent > span.contactsep {
+    height: 3rem;
+    border-right: 2px var(--color-light-gray) solid;
+    margin: 0;
+}
+
+/* ================== */
+/* CURSOR */
+/* ================== */
+/* div.cursors div{
+  position: absolute;
+  top:300px;
+  left:300px;
+  width:30px;
+  height:30px;
+  background-color:#000000;
+  border-radius:50%;
+  z-index:100000;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+
+}
+
+div.cursors div span {
+  position:absolute;
+  top:0;
+  left:40px;
+  width:300px;
+
+  font-size:32px;
+  font-weight:700;
+  line-height:32px;
+  color:#000000;
+} */
+
+    </style>
+    
+    <script async="" src="../gtag/js?id=G-Q8N20WQ22Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Q8N20WQ22Z');
+    </script>
+
+
+<script async="" src="../gtag/js-1?id=G-8HDX5M2YK4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8HDX5M2YK4');
+</script>
+
+    <script src="../nav.js" defer></script>
+</head>
+<body>
+<div id="site-nav"></div>
+<main id="content">
+
+
+    
+<div id="main">
+    <div id="mainSec">
+        <h1 class="fade">Extras</h1>
+        <h5 class="fade">Gallery of my random projects.</h5>
+        <div class="extrasSection" id="illustration">
+            <div class="extras-item" data-gallery="img/swappablegrip_1.png,img/swappablegrip_2.jpeg,img/swappablegrip_3.jpeg,img/swappablegrip_4.jpeg,img/swappablegrip_5.jpeg">
+                <img class="artimage fade" loading="lazy" src="img/swappablegrip_1.png" alt="Swappable Grip">
+                <div class="extras-caption">
+                    <h3>Swappable Grip</h3>
+                    <p>CADding a Rog Ally back plate and designing the swappable grip around it.</p>
+                </div>
+            </div>
+
+            <div class="extras-item" data-gallery="img/workbench_1.jpeg,img/workbench_2.png">
+                <img class="artimage fade" loading="lazy" src="img/workbench_1.jpeg" alt="Workbench">
+                <div class="extras-caption">
+                    <h3>Workbench</h3>
+                    <p>Low cost workbench with replaceable top.</p>
+                </div>
+            </div>
+
+            <div class="extras-item" data-gallery="img/shoerack_1.jpeg,img/shoerack_2.png">
+                <img class="artimage fade" loading="lazy" src="img/shoerack_1.jpeg" alt="Shoe Rack">
+                <div class="extras-caption">
+                    <h3>Shoe Rack</h3>
+                    <p>Double sided, adjustable shoe rack.</p>
+                </div>
+            </div>
+
+            <div class="extras-item" data-gallery="img/4-axisroboticarm.jpg">
+                <img class="artimage fade" loading="lazy" src="img/4-axisroboticarm.jpg" alt="4-Axis Robotic Arm">
+                <div class="extras-caption">
+                    <h3>4-Axis Robotic Arm</h3>
+                    <p>Intro to Engineering class project.</p>
+                </div>
+            </div>
+
+            <div class="extras-item" data-gallery="img/portablemonitormount.png">
+                <img class="artimage fade" loading="lazy" src="img/portablemonitormount.png" alt="Portable Monitor Mount">
+                <div class="extras-caption">
+                    <h3>Portable Monitor Mount</h3>
+                    <p>Portable monitor mount for my portable standing desk.</p>
+                </div>
+            </div>
+
+            <div class="extras-item" data-gallery="img/singlecylinderengine_1.jpg">
+                <img class="artimage fade" loading="lazy" src="img/singlecylinderengine_1.jpg" alt="Single Cylinder Engine">
+                <div class="extras-caption">
+                    <h3>Single Cylinder Engine</h3>
+                    <p>Practicing SolidWorks CAD modeling and assembly.</p>
+                </div>
+            </div>
+        </div>
+
+      
+
+
+    </div>
+</div>
+
+            
+            
+
+
+        </main><div id="gallery-overlay" class="gallery-overlay">
+  <div class="gallery-frame">
+    <button class="gallery-close" type="button">×</button>
+    <img id="gallery-image" src="" alt="">
+    <div id="gallery-caption" class="gallery-caption"></div>
+    <button class="gallery-prev" type="button">‹</button>
+    <button class="gallery-next" type="button">›</button>
+  </div>
+</div><div class="cursors">
+<div></div>
+</div>
+
+
+
+<script src="../ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+// Fade in (guarded in case jQuery fails to load)
+if (window.$) {
+    $(window).on("load", function () {
+        $(window).scroll(function () {
+            var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+            $(".fade").each(function () {
+                var objectBottom = $(this).offset().top + $(this).outerHeight() / 2;
+                if (!(objectBottom > windowBottom)) {
+                    $(this).addClass("faded-in")
+                } else {
+                    $(this).removeClass("faded-in")
+                }
+            });
+        }).scroll();
+    });
+}
+
+// Gallery overlay
+(function () {
+    const overlay = document.getElementById("gallery-overlay");
+    const frameImg = document.getElementById("gallery-image");
+    const frameCaption = document.getElementById("gallery-caption");
+    const btnClose = document.querySelector(".gallery-close");
+    const btnPrev = document.querySelector(".gallery-prev");
+    const btnNext = document.querySelector(".gallery-next");
+
+    if (!overlay || !frameImg || !frameCaption || !btnClose || !btnPrev || !btnNext) return;
+
+    let currentImages = [];
+    let currentTitle = "";
+    let currentIndex = 0;
+
+    const render = () => {
+        if (!currentImages.length) return;
+        const src = currentImages[currentIndex];
+        frameImg.src = src;
+        frameImg.alt = currentTitle || "Image";
+        const counter = currentImages.length > 1 ? ` (${currentIndex + 1}/${currentImages.length})` : "";
+        frameCaption.textContent = `${currentTitle}${counter}`;
+    };
+
+    const openGallery = (images, title) => {
+        currentImages = images;
+        currentTitle = title;
+        currentIndex = 0;
+        render();
+        overlay.classList.add("active");
+    };
+
+    const closeGallery = () => {
+        overlay.classList.remove("active");
+        frameImg.src = "";
+    };
+
+    btnClose.addEventListener("click", closeGallery);
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeGallery();
+    });
+    btnPrev.addEventListener("click", () => {
+        if (!currentImages.length) return;
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        render();
+    });
+    btnNext.addEventListener("click", () => {
+        if (!currentImages.length) return;
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        render();
+    });
+    // Advance on image click
+    frameImg.addEventListener("click", () => {
+        if (!currentImages.length) return;
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        render();
+    });
+
+    document.querySelectorAll(".extras-item").forEach((item) => {
+        const img = item.querySelector(".artimage");
+        if (!img) return;
+        const title = (item.querySelector(".extras-caption h3")?.textContent || img.alt || "").trim();
+        const galleryData = (item.dataset.gallery || "").split(",").map((s) => s.trim()).filter(Boolean);
+        const images = galleryData.length ? galleryData : [img.src];
+        img.addEventListener("click", () => openGallery(images, title));
+    });
+})();
+
+// Navbar
+function openNav() {
+    document.getElementById("navholder-mobile").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("navholder-mobile").style.height = "0%";
+}
+</script>
+
+
+</body>
+</html>
